@@ -63,7 +63,7 @@ namespace Bloxstrap
         private long _totalDownloadedBytes = 0;
         private bool _packageExtractionSuccess = true;
 
-        private bool _mustUpgrade => App.LaunchSettings.ForceFlag.Active || App.State.Prop.ForceReinstall || String.IsNullOrEmpty(AppData.State.VersionGuid) || !File.Exists(AppData.ExecutablePath);
+        private bool _mustUpgrade => false;
         private bool _noConnection = false;
 
         private AsyncMutex? _mutex;
@@ -178,8 +178,10 @@ namespace Bloxstrap
                 _mustUpgrade ? MessageBoxImage.Error : MessageBoxImage.Warning,
                 exception);
 
-            if (_mustUpgrade)
-                App.Terminate(ErrorCode.ERROR_CANCELLED);
+            // Disable forced upgrade on connection loss
+            // if (_mustUpgrade)
+            //     App.Terminate(ErrorCode.ERROR_CANCELLED);
+
         }
 
         public async Task Run()
@@ -279,29 +281,12 @@ namespace Bloxstrap
                     await UpgradeRoblox();
                 }
 
-                if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                // if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
+                if (false)
                 {
-                    bool backgroundUpdaterMutexOpen = Utilities.DoesMutexExist("Bloxstrap-BackgroundUpdater");
-                    if (App.LaunchSettings.BackgroundUpdaterFlag.Active)
-                        backgroundUpdaterMutexOpen = false; // we want to actually update lol
-
-                    App.Logger.WriteLine(LOG_IDENT, $"Background updater running: {backgroundUpdaterMutexOpen}");
-
-                    if (backgroundUpdaterMutexOpen && _mustUpgrade)
-                    {
-                        // I am Forced Upgrade, killer of Background Updates
-                        Utilities.KillBackgroundUpdater();
-                        backgroundUpdaterMutexOpen = false;
-                    }
-                   
-                    if (!backgroundUpdaterMutexOpen)
-                    {
-                        if (IsEligibleForBackgroundUpdate())
-                            StartBackgroundUpdater();
-                        else
-                            await UpgradeRoblox();
-                    }
+                    await UpgradeRoblox();
                 }
+
 
                 if (_cancelTokenSource.IsCancellationRequested)
                     return;
@@ -671,7 +656,7 @@ namespace Bloxstrap
 
                 if (String.IsNullOrEmpty(ResolvedName))
                 {
-                    await UpgradeRoblox();
+                return;
                 }
 
                 var startInfo = new ProcessStartInfo()
