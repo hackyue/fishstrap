@@ -269,8 +269,11 @@ namespace Bloxstrap
 
                 await SetupPackageDictionaries(); // mods also require it
 
+                bool robloxInstallMissing = !File.Exists(Path.Combine(AppData.Directory, App.RobloxPlayerAppName));
+
                 // we are checking if eurotrucks2 exists in client directory
                 if (
+                    (App.Settings.Prop.UpdateRoblox || robloxInstallMissing) &&
                     File.Exists(Path.Combine(AppData.Directory, App.RobloxAnselAppName))
                     )
                 {
@@ -282,7 +285,7 @@ namespace Bloxstrap
                 }
 
                 // if (AppData.State.VersionGuid != _latestVersionGuid || _mustUpgrade)
-                if (false)
+                if ((false && App.Settings.Prop.UpdateRoblox) || robloxInstallMissing)
                 {
                     await UpgradeRoblox();
                 }

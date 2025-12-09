@@ -129,11 +129,14 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public bool ForceRobloxReinstallation
         {
-            // wouldnt it be better to check old version guids?
-            // what about fresh installs?
-            get => String.IsNullOrEmpty(App.RobloxState.Prop.Player.VersionGuid) && String.IsNullOrEmpty(App.RobloxState.Prop.Studio.VersionGuid);
+            get => App.State.Prop.ForceReinstall;
             set
             {
+                if (App.State.Prop.ForceReinstall == value)
+                    return;
+
+                App.State.Prop.ForceReinstall = value;
+
                 if (value)
                 {
                     _oldPlayerVersionGuid = App.RobloxState.Prop.Player.VersionGuid;
@@ -143,9 +146,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 }
                 else
                 {
-                    App.RobloxState.Prop.Player.VersionGuid = _oldPlayerVersionGuid;
-                    App.RobloxState.Prop.Studio.VersionGuid = _oldStudioVersionGuid;
+                    if (!String.IsNullOrEmpty(_oldPlayerVersionGuid))
+                        App.RobloxState.Prop.Player.VersionGuid = _oldPlayerVersionGuid;
+
+                    if (!String.IsNullOrEmpty(_oldStudioVersionGuid))
+                        App.RobloxState.Prop.Studio.VersionGuid = _oldStudioVersionGuid;
                 }
+
+                App.State.Save();
+                App.RobloxState.Save();
+
+                OnPropertyChanged(nameof(ForceRobloxReinstallation));
             }
         }
     }
