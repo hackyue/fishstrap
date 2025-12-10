@@ -32,6 +32,21 @@ namespace Bloxstrap
 
         public static Version GetVersionFromString(string version)
         {
+            if (!TryNormalizeVersionString(version, out var parsedVersion))
+                throw new ArgumentException("Version string portion was too short or too long.", nameof(version));
+
+            return parsedVersion;
+        }
+
+        private static bool TryNormalizeVersionString(string version, out Version parsedVersion)
+        {
+            parsedVersion = default!;
+
+            if (String.IsNullOrWhiteSpace(version))
+                return false;
+
+            version = version.Trim();
+
             if (version.StartsWith('v'))
                 version = version[1..];
 
@@ -39,7 +54,16 @@ namespace Bloxstrap
             if (idx != -1)
                 version = version[..idx];
 
-            return new Version(version);
+            return Version.TryParse(version, out parsedVersion);
+        }
+
+        private static Version ParseVersionOrDefault(string versionStr, string logIdent)
+        {
+            if (TryNormalizeVersionString(versionStr, out var parsedVersion))
+                return parsedVersion;
+
+            App.Logger.WriteLine(logIdent, $"Failed to parse version string '{versionStr}'. Defaulting to 0.0.0.0.");
+            return new Version(0, 0, 0, 0);
         }
 
         /// <summary>
@@ -55,10 +79,12 @@ namespace Bloxstrap
         /// </returns>
         public static VersionComparison CompareVersions(string versionStr1, string versionStr2)
         {
+            const string LOG_IDENT = "Utilities::CompareVersions";
+
             try
             {
-                var version1 = GetVersionFromString(versionStr1);
-                var version2 = GetVersionFromString(versionStr2);
+                var version1 = ParseVersionOrDefault(versionStr1, LOG_IDENT);
+                var version2 = ParseVersionOrDefault(versionStr2, LOG_IDENT);
 
                 return (VersionComparison)version1.CompareTo(version2);
             }
@@ -68,8 +94,8 @@ namespace Bloxstrap
                 // https://github.com/bloxstraplabs/bloxstrap/issues/3193
                 // the problem is that this happens only on upgrade, so my only hope of catching this is bug reports following the next release
 
-                App.Logger.WriteLine("Utilities::CompareVersions", "An exception occurred when comparing versions");
-                App.Logger.WriteLine("Utilities::CompareVersions", $"versionStr1={versionStr1} versionStr2={versionStr2}");
+                App.Logger.WriteLine(LOG_IDENT, "An exception occurred when comparing versions");
+                App.Logger.WriteLine(LOG_IDENT, $"versionStr1={versionStr1} versionStr2={versionStr2}");
 
                 throw;
             }
@@ -82,7 +108,7 @@ namespace Bloxstrap
         {
             const string LOG_IDENT = "Utilities::ParseVersionSafe";
 
-            if (!Version.TryParse(versionStr, out Version? version))
+            if (!TryNormalizeVersionString(versionStr, out Version? version))
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to convert {versionStr} to a valid Version type.");
                 return version;

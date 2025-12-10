@@ -1,28 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <UseWindowsForms>True</UseWindowsForms>
-    <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-    <Version>3.0.1.0</Version>
-    <FileVersion>3.0.1.0</FileVersion>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-	<AssemblyName>Fishstrap</AssemblyName>
-    <Product>$(AssemblyName)</Product>
-    <RootNamespace>Bloxstrap</RootNamespace>
-    <Platforms>AnyCPU;x64</Platforms>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>True</UseWindowsForms>
+		<ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
+		<Version>3.0.1.0</Version>
+		<FileVersion>3.0.1.0</FileVersion>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 
-  <ItemGroup>
+		<!-- PROJECT NAME CHANGES -->
+		<AssemblyName>Fishstrap</AssemblyName>
+		<Product>$(AssemblyName)</Product>
+		<RootNamespace>Bloxstrap</RootNamespace>
+		<Platforms>AnyCPU;x64</Platforms>
+
+		<!-- SINGLE FILE PUBLISH SETTINGS -->
+		<PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+	</PropertyGroup>
+
+
+	<ItemGroup>
     <None Remove="Resources\LightEditor.xshd" />
   </ItemGroup>
     
-  <ItemGroup>
+	<ItemGroup>
     <Resource Include="Bloxstrap.ico" />
     <Resource Include="Resources\LightEditor.xshd" />
     <Resource Include="Resources\Fonts\NotoSansThai-VariableFont_wdth,wght.ttf" />
