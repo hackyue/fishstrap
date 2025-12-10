@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Bootstrapper.AutoUpdateFailed" xml:space="preserve">
-    <value>Fishstrap konnte nicht automatisch auf die Version {0} aktualisieren. Bitte aktualisiere es manuell, indem du es von der Webseite herunterlädst und ausführst.</value>
+    <value>RAMstrap konnte nicht automatisch auf die Version {0} aktualisieren. Bitte aktualisiere es manuell, indem du es von der Webseite herunterlädst und ausführst.</value>
   </data>
   <data name="Bootstrapper.ConfirmLaunch" xml:space="preserve">
     <value>Roblox ist gerade geöffnet und wird beim Starten eines neuen Fensters geschlossen. Bist du dir sicher, dass du fortfahren möchtest?</value>
@@ -127,13 +127,13 @@
     <value>Roblox könnte aktuell nicht erreichbar sein. Siehe dir {0} für mehr Informationen an.</value>
   </data>
   <data name="Dialog.Connectivity.BadConnection" xml:space="preserve">
-    <value>Es konnte keine Verbindung hergestellt werden, was wahrscheinlich auf eine schlechte Internetverbindung oder eine Firewall-Blockade hinweist. Sollte das Problem nicht bei deiner Internetverbindung liegen, könnte es sein, dass Fishstrap durch dein Antivirus blockiert wird.</value>
+    <value>Es konnte keine Verbindung hergestellt werden, was wahrscheinlich auf eine schlechte Internetverbindung oder eine Firewall-Blockade hinweist. Sollte das Problem nicht bei deiner Internetverbindung liegen, könnte es sein, dass RAMstrap durch dein Antivirus blockiert wird.</value>
   </data>
   <data name="Bootstrapper.FirstRunUninstall" xml:space="preserve">
-    <value>Du musst zuerst Fishstrap installieren, bevor du es deinstallierst.</value>
+    <value>Du musst zuerst RAMstrap installieren, bevor du es deinstallierst.</value>
   </data>
   <data name="Bootstrapper.NotEnoughSpace" xml:space="preserve">
-    <value>Fishstrap hat nicht genügend Speicherplatz um Roblox herunterzuladen und zu installieren. Bitte gebe etwas Speicherplatz frei und versuche es erneut.</value>
+    <value>RAMstrap hat nicht genügend Speicherplatz um Roblox herunterzuladen und zu installieren. Bitte gebe etwas Speicherplatz frei und versuche es erneut.</value>
   </data>
   <data name="Bootstrapper.Status.ApplyingModifications" xml:space="preserve">
     <value>Roblox Modifikationen werden angewendet...</value>
@@ -169,10 +169,10 @@
     <comment>Text for style previews that use text button that says "Cancel"</comment>
   </data>
   <data name="Bootstrapper.SuccessfullyUninstalled" xml:space="preserve">
-    <value>Fishstrap wurde erfolgreich deinstalliert</value>
+    <value>RAMstrap wurde erfolgreich deinstalliert</value>
   </data>
   <data name="Bootstrapper.Uninstall.RobloxRunning" xml:space="preserve">
-    <value>Roblox läuft derzeit, muss jedoch geschlossen werden, bevor Fishstrap deinstalliert werden kann. Möchtest du Roblox jetzt schließen?</value>
+    <value>Roblox läuft derzeit, muss jedoch geschlossen werden, bevor RAMstrap deinstalliert werden kann. Möchtest du Roblox jetzt schließen?</value>
   </data>
   <data name="Bootstrapper.WMFNotFound" xml:space="preserve">
     <value>Roblox erfordert die Nutzung von Windows Media Foundation Komponenten. Es sieht so aus, als ob sie bei dir fehlen, wahrscheinlich weil du eine N Edition von Windows verwendest. Bitte installiere sie zuerst und starte anschließend Roblox.</value>
@@ -276,14 +276,14 @@ Klicke für mehr Informationen</value>
     <value>Verbindungsfehler</value>
   </data>
   <data name="Dialog.Connectivity.UnableToConnect" xml:space="preserve">
-    <value>Fishstrap kann keine Verbindung zu {0} herstellen</value>
+    <value>RAMstrap kann keine Verbindung zu {0} herstellen</value>
     <comment>{0} is the name of a service (i.e. Roblox, GitHub)</comment>
   </data>
   <data name="Dialog.Exception.CopyLogContents" xml:space="preserve">
     <value>Log Inhalt kopieren</value>
   </data>
   <data name="Dialog.Exception.Info.1" xml:space="preserve">
-    <value>Es ist ein Fehler während der Ausführung von Fishstrap aufgetreten</value>
+    <value>Es ist ein Fehler während der Ausführung von RAMstrap aufgetreten</value>
   </data>
   <data name="Dialog.Exception.Info.2" xml:space="preserve">
     <value>Schau dir als Erstes die [Bloxstrap Wiki]({0}) an, um zu sehen, ob dieses Problem bereits angesprochen und gelöst wurde.
@@ -291,7 +291,7 @@ Klicke für mehr Informationen</value>
 Falls nicht, solltest du diesen Fehler über ein [GitHub Issue]({1}) mit einer Kopie der erstellten log Datei melden.</value>
   </data>
   <data name="Dialog.Exception.Title" xml:space="preserve">
-    <value>Fishstrap Fehler</value>
+    <value>RAMstrap Fehler</value>
   </data>
   <data name="Common.Custom" xml:space="preserve">
     <value>Benutzerdefiniert</value>
@@ -306,10 +306,10 @@ Falls nicht, solltest du diesen Fehler über ein [GitHub Issue]({1}) mit einer K
     <value>Fake Byfron (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
-    <value>Fishstrap (Klassisch)</value>
+    <value>RAMstrap (Klassisch)</value>
   </data>
   <data name="Enums.BootstrapperStyle.FluentAeroDialog" xml:space="preserve">
-    <value>Fishstrap (Glas)</value>
+    <value>RAMstrap (Glas)</value>
   </data>
   <data name="Enums.BootstrapperStyle.LegacyDialog2008" xml:space="preserve">
     <value>Legacy (2008-2011)</value>
@@ -387,10 +387,10 @@ Falls nicht, solltest du diesen Fehler über ein [GitHub Issue]({1}) mit einer K
     <value>Hell</value>
   </data>
   <data name="InstallChecker.Updated" xml:space="preserve">
-    <value>Fishstrap wurde auf v{0} aktualisiert</value>
+    <value>RAMstrap wurde auf v{0} aktualisiert</value>
   </data>
   <data name="InstallChecker.VersionDifferentThanInstalled" xml:space="preserve">
-    <value>Die ausgeführte Version von Fishstrap unterscheidet sich von der installierten Version.
+    <value>Die ausgeführte Version von RAMstrap unterscheidet sich von der installierten Version.
 Möchtest du deine installierte Version aktualisieren?</value>
   </data>
   <data name="Menu.About.Contributors" xml:space="preserve">
@@ -400,7 +400,7 @@ Möchtest du deine installierte Version aktualisieren?</value>
     <value>Code</value>
   </data>
   <data name="Menu.About.Contributors.Description" xml:space="preserve">
-    <value>Dies sind die Personen, welche bedeutende Beiträge zu Fishstrap geleistet haben, um es zu dem zu machen was es ist.</value>
+    <value>Dies sind die Personen, welche bedeutende Beiträge zu RAMstrap geleistet haben, um es zu dem zu machen was es ist.</value>
   </data>
   <data name="Menu.About.Contributors.FeatureIdeas" xml:space="preserve">
     <value>Feature-Ideen</value>
@@ -446,7 +446,7 @@ Möchtest du deine installierte Version aktualisieren?</value>
     <value>Bitte beachte, dass manche Änderungen erst übernommen werden können, wenn du alle Instanzen von Roblox schließt.</value>
   </data>
   <data name="Menu.AlreadyRunning.Title" xml:space="preserve">
-    <value>Fishstrap wurde bereits gestartet</value>
+    <value>RAMstrap wurde bereits gestartet</value>
   </data>
   <data name="Menu.Appearance.Bootstrapper.Description" xml:space="preserve">
     <value>Du kannst dass Design anders, retro oder einfach wie Roblox aussehen lassen.</value>
@@ -473,7 +473,7 @@ Möchtest du deine installierte Version aktualisieren?</value>
     <value>Titel</value>
   </data>
   <data name="Menu.Appearance.Description" xml:space="preserve">
-    <value>Konfiguriere das Aussehen von Fishstrap.</value>
+    <value>Konfiguriere das Aussehen von RAMstrap.</value>
   </data>
   <data name="Menu.Appearance.Global.Theme.Title" xml:space="preserve">
     <value>Globales Design</value>

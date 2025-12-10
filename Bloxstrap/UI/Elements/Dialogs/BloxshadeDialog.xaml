@@ -9,7 +9,7 @@
         xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
         xmlns:resources="clr-namespace:Bloxstrap.Resources"
         mc:Ignorable="d"
-        Title="Fishstrap"
+        Title="RAMstrap"
         MinWidth="380"
         MinHeight="0"
         Width="380"
